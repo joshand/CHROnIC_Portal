@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+    <script src="/static/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>{% block title %}{% endblock %} - Cisco Health Report and Online Information Center</title>
+    {% endblock %}
+  </head>
+    <h1>Cisco Health Report and Online Information Center</h1>
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="hostname">Processed by {{ hostname }}</div>
+  </body>
+</html>
