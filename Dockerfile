@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Chad Peterson chapeter@cisco.com
 
-RUN apt-get -y install \
+RUN apt-get update && apt-get -y install \
   python \
   python-pip
 
