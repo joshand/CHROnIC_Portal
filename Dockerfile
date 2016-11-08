@@ -1,9 +1,6 @@
-FROM ubuntu:latest
+FROM chapeter/chronic_docker
 MAINTAINER Chad Peterson chapeter@cisco.com
 
-RUN apt-get update && apt-get -y install \
-  python \
-  python-pip
 
 COPY . /CHROnIC_Portal
 WORKDIR /CHROnIC_Portal
