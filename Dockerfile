@@ -5,8 +5,8 @@ MAINTAINER Chad Peterson chapeter@cisco.com
 COPY . /CHROnIC_Portal
 WORKDIR /CHROnIC_Portal
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 
 EXPOSE 5000
-CMD [ "python", "./main.py" ]
+CMD [ "python3", "./main.py" ]
