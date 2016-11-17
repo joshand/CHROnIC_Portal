@@ -1,0 +1,27 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+<h1>Report</h1>
+    <table border="2" style="width:100%">
+        <tr>
+            <th>Server</th>
+            <th>Serial</th>
+            <th>Type</th>
+            <th>OS</th>
+            <th>Firmware</th>
+            <th>ENIC</th>
+            <th>FNIC</th>
+        </tr>
+    {% for n in servers %}
+        <tr>
+            <td>{{n['location']}}</td>
+            <td>{{n['serial']}}</td>
+            <td>{{n['type']}}</td>
+            <td>{{n['os']}}</td>
+            <td>Running - {{n['firmware']}}<br>{{n['firmware_supported']}}</td>
+            <td>Running - {{n['running_enic']}}<br>{{n['supported_enic']}}<br>{{n['enic_status']}}</td>
+            <td>Running - {{n['running_fnic']}}<br>{{n['supported_fnic']}}<br>{{n['fnic_status']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

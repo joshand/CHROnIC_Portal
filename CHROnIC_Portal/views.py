@@ -3,7 +3,7 @@ import socket
 from flask import render_template, redirect, request
 from .forms import hcHealthAuthForm
 from CHROnIC_Portal import app
-from tasks import getJobs
+from .tasks import getJobs, getReports, buildReportData
 
 @app.route("/")
 def index():
@@ -30,5 +30,15 @@ def hcStatus():
 @app.route("/jobs")
 def jobs():
     jobs = getJobs()
+    reports = getReports()
     hostname = socket.gethostname()
-    return render_template('jobs.html', data=jobs, hostname=hostname)
+    return render_template('jobs.html', data=jobs, reports=reports, hostname=hostname)
+
+
+@app.route("/report/<reportid>")
+def report(reportid):
+    #print(reportid)
+    servers = buildReportData(reportid)
+    hostname = socket.gethostname()
+
+    return render_template('report.html', servers=servers, hostname=hostname)

@@ -1,17 +1,33 @@
 {% extends "base_layout.html" %}
 {% block content %}
 
-<h1>Completed Jobs</h1>
+<h1>Reports</h1>
+    <table border="2" style="width:100%">
+        <tr>
+            <th>Report Name</th>
+            <th>Report Link</th>
+            <th>Report Status</th>
+        </tr>
+        {% for n in reports %}
+        <tr>
+            <td>{{n['report']}}</td>
+            <td><a href="{{n['link']}}">View Report</a></td>
+            <td>{{n['status']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<h1>System Jobs</h1>
     <table border="2" style="width:100%">
         <tr>
             <th>Job Name</th>
-            <th>Job Link</th>
+            <th>Build Report</th>
             <th>Job Status</th>
         </tr>
         {% for n in data %}
         <tr>
             <td>{{n['job']}}</td>
-            <td><a href="{{n['link']}}">{{n['link']}}</a></td>
+            <td><a href="{{n['link']}}">Build Report</a></td>
             <td>{{n['status']}}</td>
         </tr>
         {% endfor %}
