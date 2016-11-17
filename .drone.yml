@@ -6,7 +6,7 @@ build:
 
 publish:
     docker:
-        repo: $$DOCKER_USERNAME/chronic_portal
+        repo: $$DOCKER_USERNAME/chronic-portal
         tag: latest
         username: $$DOCKER_USERNAME
         password: $$DOCKER_PASSWORD
@@ -21,7 +21,7 @@ deploy:
             username: $$MANTL_USERNAME
             password: $$MANTL_PASSWORD
         urls:
-            - https://$$MANTL_CONTROL/marathon/v2/apps/chapeter/chronic_portal/restart?force=true
+            - https://$$MANTL_CONTROL/marathon/v2/apps/imapex/chronic/portal/restart?force=true
 
 notify:
     spark:

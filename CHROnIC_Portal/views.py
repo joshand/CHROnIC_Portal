@@ -3,10 +3,12 @@ import socket
 from flask import render_template, redirect, request
 from .forms import hcHealthAuthForm
 from CHROnIC_Portal import app
+from tasks import getJobs
 
 @app.route("/")
 def index():
-    return redirect("/hc_auth", code=302)
+    return render_template("index.html")
+    #return redirect("/hc_auth", code=302)
 
 @app.route("/hc_auth")
 def hcAuth():
@@ -23,3 +25,10 @@ def hcStatus():
     vc_username = request.form['vc_username']
     vc_password = request.form['vc_password']
     return "Credentials Accepted.  Sending to Josh's app"
+
+
+@app.route("/jobs")
+def jobs():
+    jobs = getJobs()
+    hostname = socket.gethostname()
+    return render_template('jobs.html', data=jobs, hostname=hostname)
