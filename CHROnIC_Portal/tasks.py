@@ -23,6 +23,8 @@ def getJobs():
     channels = response.json()
     jobs = []
 
+    basebuildlink = "http://imapex-chronic-ucs-esx-analyzer.green.browndogtech.com/api/"
+
     for channel in channels:
         if "report" not in channel:
             tracker = 0
@@ -33,7 +35,7 @@ def getJobs():
                 channels[channel]['status'] = "complete"
             else:
                 channels[channel]['status'] = "in progress"
-            jobs.append({'job':channel, 'link':'link', 'status':channels[channel]['status']})
+            jobs.append({'job':channel, 'link':basebuildlink + channel, 'status':channels[channel]['status']})
 
     pprint.pprint(channels)
     pprint.pprint(jobs)
