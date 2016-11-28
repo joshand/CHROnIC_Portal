@@ -61,8 +61,9 @@ def hcStatus():
     vcenter = vcenter.replace('\\\"', '\"')
     vcenter = vcenter.replace('\"', '\\\"')
 
+    webhookurl = "http://imapex-chronic-ucs-esx-analyzer.green.browndogtech.com/api/{}".format(channelid)
 
-    content = '{"msgdata":"' + vcenter + '", "status": "0", "desc":"' + "vcenter" + '"}'
+    content = '{"msgdata":"' + vcenter + '", "status": "0", "desc":"' + "vcenter" + '", "webhook":"'+ webhookurl +'"}'
     r = requests.post(url, data=content, headers=headers)
     print(url)
     print(r)
