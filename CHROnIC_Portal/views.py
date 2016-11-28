@@ -4,6 +4,12 @@ from flask import render_template, redirect, request
 from .forms import hcHealthAuthForm
 from CHROnIC_Portal import app
 from .tasks import getJobs, getReports, buildReportData
+import json
+import requests
+import os
+import pprint
+busbaseurl = os.environ['CHRONICBUS']
+
 
 @app.route("/")
 def index():
@@ -24,7 +30,46 @@ def hcStatus():
     vc_hostname = request.form['vc_hostname']
     vc_username = request.form['vc_username']
     vc_password = request.form['vc_password']
-    return "Credentials Accepted.  Sending to Josh's app"
+    channelid = request.form['channelid']
+
+    url = busbaseurl + "/api/send/{}".format(channelid)
+    headers = {'Content-type':'application/json'}
+
+    with open('CHROnIC_Portal/ucs.json', 'r') as ucs_template:
+        ucs = ucs_template.read()
+
+    ucs = ucs.replace('%ip%', ucs_hostname)
+    ucs = ucs.replace('%un%', ucs_username)
+    ucs = ucs.replace('%pw%', ucs_password)
+
+    ucs = ucs.replace('\\\"', '\"')
+    ucs = ucs.replace('\"', '\\\"')
+
+    content = '{"msgdata":"' + ucs + '", "status": "0", "desc":"' + "ucs"+ '"}'
+    r = requests.post(url, data=content, headers=headers)
+    print(url)
+    print(r)
+    print(content)
+
+    with open('CHROnIC_Portal/vcenter.json','r') as vcenter_template:
+        vcenter = vcenter_template.read()
+
+    vcenter = vcenter.replace('%ip%', vc_hostname)
+    vcenter = vcenter.replace('%un%', vc_username)
+    vcenter = vcenter.replace('%pw%', vc_password)
+
+    vcenter = vcenter.replace('\\\"', '\"')
+    vcenter = vcenter.replace('\"', '\\\"')
+
+
+    content = '{"msgdata":"' + vcenter + '", "status": "0", "desc":"' + "vcenter" + '"}'
+    r = requests.post(url, data=content, headers=headers)
+    print(url)
+    print(r)
+    print(content)
+
+
+    return redirect("/jobs", code=302)
 
 
 @app.route("/jobs")
