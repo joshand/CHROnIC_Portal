@@ -2,7 +2,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "chapeter/chronic-portal:latest",
+            "image": "joshand/chronic-portal:latest",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [{

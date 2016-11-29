@@ -3,3 +3,4 @@
 .virtualenv
 drone_secrets.yml
 drone_secrets.yml.example
+drone-secrets.yml

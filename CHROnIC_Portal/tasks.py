@@ -1,9 +1,13 @@
+import os
 import requests
 import pprint
 import ast
 
+busbaseurl = os.environ['CHRONICBUS']
+ucsbaseurl = os.environ['CHRONICUCS']
+
 def getReports():
-    url = "http://imapex-chronic-bus.green.browndogtech.com/api/get"
+    url = busbaseurl + "/api/get"
     response = requests.request("GET", url)
     channels = response.json()
 
@@ -18,12 +22,12 @@ def getReports():
 
 
 def getJobs():
-    url = "http://imapex-chronic-bus.green.browndogtech.com/api/get"
+    url = busbaseurl + "/api/get"
     response = requests.request("GET", url)
     channels = response.json()
     jobs = []
 
-    basebuildlink = "http://imapex-chronic-ucs-esx-analyzer.green.browndogtech.com/api/"
+    basebuildlink = ucsbaseurl + "/api/"
 
     for channel in channels:
         if "report" not in channel:
@@ -42,7 +46,7 @@ def getJobs():
     return jobs
 
 def buildReportData(reportid):
-    url = "http://imapex-chronic-bus.green.browndogtech.com/api/get/{}/2".format(reportid)
+    url = busbaseurl + "/api/get/{}/2".format(reportid)
     response = requests.request("GET", url)
 
     data = response.json()
