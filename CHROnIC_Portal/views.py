@@ -11,7 +11,7 @@ import pprint
 import base64
 busbaseurl = os.environ['CHRONICBUS']
 ucsbaseurl = os.environ['CHRONICUCS']
-
+mybaseurl = os.environ['CHRONICPORTAL']
 
 @app.route("/")
 def index():
@@ -72,7 +72,7 @@ def hcStatus():
     print(content)
 
 
-    return redirect("./jobs", code=302)
+    return redirect(mybaseurl + "/jobs", code=302)
 
 
 @app.route("/jobs")
