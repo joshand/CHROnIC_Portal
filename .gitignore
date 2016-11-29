@@ -1,6 +1,7 @@
 .idea/
 .vagrant/
 .virtualenv
+__pycache__/
 drone_secrets.yml
 drone_secrets.yml.example
 drone-secrets.yml
