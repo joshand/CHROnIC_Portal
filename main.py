@@ -5,4 +5,4 @@ from CHROnIC_Portal import app
 
 
 app.secret_key = '1234'
-app.run(host='0.0.0.0', port=5000, debug=True)
+app.run(host='0.0.0.0', port=5001, debug=True)

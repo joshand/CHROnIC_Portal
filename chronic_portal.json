@@ -16,13 +16,13 @@
         "protocol": "TCP",
         "portIndex": 0
     }],
-    "id": "/imapex/chronic/portal",
+    "id": "/imapex/chronic/portal2",
     "instances": 1,
     "cpus": 0.1,
     "mem": 16,
     "env": {
-        "CHRONICPORTAL": "http://imapex-chronic-portal.app.mantldevnetsandbox.com",
-        "CHRONICBUS": "http://imapex-chronic-bus.app.mantldevnetsandbox.com",
-        "CHRONICUCS": "http://imapex-chronic-ucs-esx-analyzer.app.mantldevnetsandbox.com"
+        "CHRONICPORTAL": "http://imapex-chronic-portal2.green.browndogtech.com",
+        "CHRONICBUS": "http://imapex-chronic-bus.green.browndogtech.com",
+        "CHRONICUCS": "http://imapex-chronic-ucs-esx-analyzer2.green.browndogtech.com"
     }
 }
