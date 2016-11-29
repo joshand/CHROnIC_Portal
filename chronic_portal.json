@@ -21,5 +21,7 @@
     "cpus": 0.1,
     "mem": 16,
     "env": {
+        "CHRONICBUS": "http://imapex-chronic-bus.app.mantldevnetsandbox.com",
+        "CHRONICUCS": "http://imapex-chronic-ucs-esx-analyzer.app.mantldevnetsandbox.com"
     }
 }

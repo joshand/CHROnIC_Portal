@@ -8,6 +8,7 @@ import json
 import requests
 import os
 import pprint
+import base64
 busbaseurl = os.environ['CHRONICBUS']
 
 
