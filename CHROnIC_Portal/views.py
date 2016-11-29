@@ -10,6 +10,7 @@ import os
 import pprint
 import base64
 busbaseurl = os.environ['CHRONICBUS']
+ucsbaseurl = os.environ['CHRONICUCS']
 
 
 @app.route("/")
@@ -62,7 +63,7 @@ def hcStatus():
     #vcenter = vcenter.replace('\\\"', '\"')
     #vcenter = vcenter.replace('\"', '\\\"')
 
-    webhookurl = "http://imapex-chronic-ucs-esx-analyzer.green.browndogtech.com/api/{}".format(channelid)
+    webhookurl = ucsbaseurl + "/api/{}".format(channelid)
 
     content = '{"msgdata":"' + base64.b64encode(bytes(vcenter, "utf-8")).decode("ascii") + '", "status": "0", "desc":"vcenter", "webhook":"' + webhookurl + '"}'
     r = requests.post(url, data=content, headers=headers)
@@ -71,7 +72,7 @@ def hcStatus():
     print(content)
 
 
-    return redirect("/jobs", code=302)
+    return redirect("./jobs", code=302)
 
 
 @app.route("/jobs")
