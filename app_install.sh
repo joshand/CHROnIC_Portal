@@ -31,7 +31,7 @@ echo
 
 echo " "
 echo "***************************************************"
-echo "Installing the app as  chronicbus"
+echo "Installing the app as  chronicportal"
 curl -k -X POST -u $mantl_user:$mantl_password https://$control_address:8080/v2/apps \
 -H "Content-type: application/json" \
 -d @chronic_portal.json \
