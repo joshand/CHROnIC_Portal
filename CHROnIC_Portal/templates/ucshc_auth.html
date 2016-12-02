@@ -13,6 +13,10 @@
     {{ form.vc_username.label }} {{ form.vc_username(size=20) }}<br>
     {{ form.vc_password.label }} {{ form.vc_password(size=20) }}<br>
     <br>
+    <h2>vSphere Credentials (leave blank if same as vCenter)</h2>
+    {{ form.vs_username.label }} {{ form.vs_username(size=20) }}<br>
+    {{ form.vs_password.label }} {{ form.vs_password(size=20) }}<br>
+    <br>
     <h2>Collector Info</h2>
     {{ form.channelid.label }} {{ form.channelid(size=20) }}<br>
 

@@ -12,4 +12,6 @@ class hcHealthAuthForm(Form):
     vc_hostname = StringField('Hostname')
     vc_username = StringField('Username')
     vc_password = PasswordField('Password')
+    vs_username = StringField('Username')
+    vs_password = PasswordField('Password')
     channelid = StringField('Channel ID')

@@ -32,6 +32,11 @@ def hcStatus():
     vc_hostname = request.form['vc_hostname']
     vc_username = request.form['vc_username']
     vc_password = request.form['vc_password']
+    vs_username = request.form['vs_username']
+    vs_password = request.form['vs_password']
+    if vs_username == "" or vs_password = "":
+        vs_username = vc_username
+        vs_password = vc_password
     channelid = request.form['channelid']
 
     url = busbaseurl + "/api/send/{}".format(channelid)
@@ -53,12 +58,14 @@ def hcStatus():
     print(r)
     print(content)
 
-    with open('CHROnIC_Portal/vcenter.json','r') as vcenter_template:
+    with open('CHROnIC_Portal/vcenter2.json','r') as vcenter_template:
         vcenter = vcenter_template.read()
 
     vcenter = vcenter.replace('%ip%', vc_hostname)
-    vcenter = vcenter.replace('%un%', vc_username)
-    vcenter = vcenter.replace('%pw%', vc_password)
+    vcenter = vcenter.replace('%un1%', vc_username)
+    vcenter = vcenter.replace('%pw1%', vc_password)
+    vcenter = vcenter.replace('%un2%', vs_username)
+    vcenter = vcenter.replace('%pw2%', vs_password)
 
     #vcenter = vcenter.replace('\\\"', '\"')
     #vcenter = vcenter.replace('\"', '\\\"')
