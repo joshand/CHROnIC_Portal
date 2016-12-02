@@ -34,7 +34,7 @@ def hcStatus():
     vc_password = request.form['vc_password']
     vs_username = request.form['vs_username']
     vs_password = request.form['vs_password']
-    if vs_username == "" or vs_password = "":
+    if vs_username == "" or vs_password == "":
         vs_username = vc_username
         vs_password = vc_password
     channelid = request.form['channelid']
